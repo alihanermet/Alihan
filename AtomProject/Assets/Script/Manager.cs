@@ -1,26 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Networking;
 
 public class Manager : MonoBehaviour
 {
     public float speed;
 
-    public NetworkManager manager;
 
     public GameObject NetManager;
     public GameObject Player;
 
     public Rigidbody rb;
-
-    void Awake()
-    {
-        if (manager == null)
-        {
-            manager = NetManager.GetComponent<NetworkManager>();
-        }
-    }
 
     public void Update()
     {
@@ -33,19 +23,11 @@ public class Manager : MonoBehaviour
 
     public void HostButton()
     {
-        if (!manager.IsClientConnected() && !NetworkServer.active)
-        {
-            manager.StartHost();
-        }
-        
+
     }
 
     public void JoinButton()
     {
-        if (!manager.IsClientConnected() && !NetworkServer.active)
-        {
-            manager.StartClient();
-        }
 
     }
 
